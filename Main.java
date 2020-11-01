@@ -10,33 +10,39 @@ public class Main {
 
         //getting the name of the holder
         Scanner scan = new Scanner(System.in);
-        System.out.print("Enter the name: ");
+        System.out.println("\nWelcome to console Banking!!!");
+        System.out.println("________________________________________");
+        System.out.println("----------------------------------------");
+        System.out.print("Enter your name to continue: ");
         String name = scan.nextLine();
 
         //initializing person
         Person person1 = new Person(name);
         person1.GetAccountNumber();
+
         //initializing account
         Account account1= new Account(name,person1.accountNumber);
-
 
         //banking
         boolean process=true;
         while (process){
-
-            System.out.println("1.Check your balance\n" +
+            System.out.println("----------------------------------------");
+            System.out.println("1.Check your balance" +
                     "\n" +
-                    "2.Make a deposit\n" +
+                    "2.Make a deposit" +
                     "\n" +
-                    "3.Make a withdrawal\n" +
+                    "3.Make a withdrawal" +
                     "\n" +
-                    "4.Calculate Interest\n" +
+                    "4.Calculate Interest" +
                     "\n" +
-                    "5.Print statement\n" +
+                    "5.Print statement" +
                     "\n" +
-                    "6.Exit the application");
-            System.out.print("Select What you want to do:");
+                    "6.Check previous transaction." +
+                    "\n" +
+                    "7.Exit the application\n");
+            System.out.print("Select from the menu:");
             int checkType = scan.nextInt();
+            System.out.println("\n----------------------------------------");
             switch (checkType){
                 case 1:
                     account1.checkBalance();
@@ -54,6 +60,10 @@ public class Main {
                     account1.Statement();
                     break;
                 case 6:
+                    account1.setPreviousTransaction();
+                    break;
+                case 7:
+                    System.out.println("________________________________________");
                     System.out.println("Thank you for banking with us.Have a nice day!!");
                     process=false;
                     break;

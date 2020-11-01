@@ -9,7 +9,7 @@ public class Person {
 
     Person(String name){
         this.name=name;
-        System.out.println("Person initialized. Hello "+name);
+        System.out.println("Hello "+name);
     }
     long GetAccountNumber(){
         long randomNumber =Math.round(Math.random()*((1000000-100000)+1)+100000);
