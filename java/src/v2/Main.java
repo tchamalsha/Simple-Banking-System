@@ -61,7 +61,9 @@ public class Main {
                     break;
                 case 5:
                     //print statement
-
+                    StatementPrinter statementPrinter=new StatementPrinter();
+                    statementPrinter.printStatement(account.accountNumber,account.getAccountBalance());
+                    break;
                 case 7:
                     action=false;
                     System.out.println("Thanks for banking with us. !!");
