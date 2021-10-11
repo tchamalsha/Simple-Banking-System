@@ -40,10 +40,26 @@ public class Main {
                     AccountBalanceChecker accountBalanceChecker=new AccountBalanceChecker(account.getAccountBalance());
                     accountBalanceChecker.checkAccountBalance();
                     break;
+                case 2:
+                    //make a deposit
+                    System.out.println("Enter amount to deposit: ");
+                    double depositAmount=scanner.nextDouble();
+                    Depositor depositor=new Depositor(depositAmount);
+                    account.setAccountBalance(depositor.depositMoney(account.getAccountBalance()));
+                    break;
+                case 3:
+                    //make a withdrawal
+                    System.out.println("Enter amount to withdraw: ");
+                    double withdrawAmount=scanner.nextDouble();
+                    WithdrawalFactory withdrawalFactory=new WithdrawalFactory(withdrawAmount);
+                    account.setAccountBalance(withdrawalFactory.withdrawMoney(account.getAccountBalance()));
+                    break;
                 case 7:
                     action=false;
                     System.out.println("Thanks for banking with us. !!");
                     break;
+                default:
+                    System.out.println("Please select number from 1 to 7!!");
             }
         }
 
