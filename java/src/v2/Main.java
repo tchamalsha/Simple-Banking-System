@@ -21,6 +21,8 @@ public class Main {
         //initializing an account
         Account account=new Account(person.accountNumber, person.name);
 
+        //initialize transaction finder
+        TransactionFinder transactionFinder=new TransactionFinder();
         boolean action=true;
         while(action){
             System.out.println("*************************************************");
@@ -39,6 +41,7 @@ public class Main {
                     //check account balance
                     AccountBalanceChecker accountBalanceChecker=new AccountBalanceChecker(account.getAccountBalance());
                     accountBalanceChecker.checkAccountBalance();
+                    transactionFinder.setTransaction("Checked account Balance");
                     break;
                 case 2:
                     //make a deposit
@@ -46,6 +49,7 @@ public class Main {
                     double depositAmount=scanner.nextDouble();
                     Depositor depositor=new Depositor(depositAmount);
                     account.setAccountBalance(depositor.depositMoney(account.getAccountBalance()));
+                    transactionFinder.setTransaction("Deposited Money to the account.");
                     break;
                 case 3:
                     //make a withdrawal
@@ -53,16 +57,23 @@ public class Main {
                     double withdrawAmount=scanner.nextDouble();
                     WithdrawalFactory withdrawalFactory=new WithdrawalFactory(withdrawAmount);
                     account.setAccountBalance(withdrawalFactory.withdrawMoney(account.getAccountBalance()));
+                    transactionFinder.setTransaction("Withdraw money from account.");
                     break;
                 case 4:
                     //calculate interest
                     InterestCalculator interestCalculator=new InterestCalculator();
                     interestCalculator.calculateInterest(account.getAccountBalance());
+                    transactionFinder.setTransaction("Calculated interest.");
                     break;
                 case 5:
                     //print statement
                     StatementPrinter statementPrinter=new StatementPrinter();
                     statementPrinter.printStatement(account.accountNumber,account.getAccountBalance());
+                    transactionFinder.setTransaction("Printed statement.");
+                    break;
+                case 6:
+                    //previous transaction
+                    transactionFinder.printPreviousTransaction();
                     break;
                 case 7:
                     action=false;
