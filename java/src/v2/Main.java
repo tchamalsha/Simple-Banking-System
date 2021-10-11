@@ -23,6 +23,11 @@ public class Main {
 
         //initialize transaction finder
         TransactionFinder transactionFinder=new TransactionFinder();
+
+        //interest calculator
+        InterestCalculator interestCalculator=new InterestCalculator();
+
+
         boolean action=true;
         while(action){
             System.out.println("*************************************************");
@@ -36,6 +41,7 @@ public class Main {
             System.out.println("Select from the menu: ");
             int actionNumber=scanner.nextInt();
             System.out.println("-------------------------------------------------");
+            interestCalculator.setInterest(account.getAccountBalance());
             switch (actionNumber){
                 case 1:
                     //check account balance
@@ -61,14 +67,13 @@ public class Main {
                     break;
                 case 4:
                     //calculate interest
-                    InterestCalculator interestCalculator=new InterestCalculator();
                     interestCalculator.calculateInterest(account.getAccountBalance());
                     transactionFinder.setTransaction("Calculated interest.");
                     break;
                 case 5:
                     //print statement
                     StatementPrinter statementPrinter=new StatementPrinter();
-                    statementPrinter.printStatement(account.accountNumber,account.getAccountBalance());
+                    statementPrinter.printStatement(account.accountNumber,account.getAccountBalance(),transactionFinder.getTransaction(),interestCalculator.getInterest());
                     transactionFinder.setTransaction("Printed statement.");
                     break;
                 case 6:

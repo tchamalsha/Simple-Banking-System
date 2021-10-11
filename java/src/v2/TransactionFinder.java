@@ -11,7 +11,7 @@ public class TransactionFinder {
         this.transaction = transaction;
     }
     public void printPreviousTransaction(){
-        System.out.println("Your previour transaction is: \n");
+        System.out.println("Your previous transaction is: \n");
         System.out.println(transaction);
     }
 }
