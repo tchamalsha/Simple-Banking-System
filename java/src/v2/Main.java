@@ -54,6 +54,14 @@ public class Main {
                     WithdrawalFactory withdrawalFactory=new WithdrawalFactory(withdrawAmount);
                     account.setAccountBalance(withdrawalFactory.withdrawMoney(account.getAccountBalance()));
                     break;
+                case 4:
+                    //calculate interest
+                    InterestCalculator interestCalculator=new InterestCalculator();
+                    interestCalculator.calculateInterest(account.getAccountBalance());
+                    break;
+                case 5:
+                    //print statement
+
                 case 7:
                     action=false;
                     System.out.println("Thanks for banking with us. !!");
